@@ -1,0 +1,44 @@
+/* NavTabs.css */
+
+.nav-tabs {
+  display: flex;
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.09);
+  font-size: 1.7rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  padding: 15px 15px;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.nav-item:hover {
+  border-color: #007bff;
+}
+
+.nav-item.active {
+  background-color: #007bff;
+}
+
+.nav-item.active a {
+  color: #fff;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  font-size: 17px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
