@@ -1,23 +1,32 @@
 /* NavTabs.css */
 
-.nav-tabs {
+.navbar {
   display: flex;
-  list-style: none;
-  padding: 5px;
-  margin: 0;
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Distribute items horizontally */
+  padding: 10px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.09);
-  font-size: 1.7rem;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 200;
-  justify-content: flex-end;
+}
+
+.logo img {
+  height: 50px; /* Set the height of the logo */
+  width: auto; /* Maintain aspect ratio */
+}
+
+.nav-tabs {
+  display: flex;
+  list-style: none;
+  margin: 0;
 }
 
 .nav-item {
-  padding: 15px 15px;
+  padding: 15px;
   border-bottom: 3px solid transparent;
   transition: border-color 0.3s ease;
 }
