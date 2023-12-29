@@ -1,11 +1,16 @@
 /* Home.css */
 
+body {
+  background-color: #f9f9f9;
+}
+
 .home-container {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: left;
   margin-top: 100px;
+  background-color: #f9f9f9;
 }
 
 .content {
@@ -20,6 +25,15 @@
   font-weight: bold;
   margin-bottom: 10px;
   font-family: "Montserrat", sans-serif;
+  position: relative;
+}
+
+.waving-hand {
+  position: absolute;
+  top: 78%;
+  left: calc(60% + 10px);
+  transform: translateY(-50%);
+  width: 50px;
 }
 
 .intro-text {
@@ -28,7 +42,12 @@
   font-family: "Inter", sans-serif;
 }
 
+.location-pin {
+  width: 20px;
+  vertical-align: middle;
+}
+
 .profile-image {
-  width: 200px;
+  width: 350px;
   border-radius: 50%;
 }
