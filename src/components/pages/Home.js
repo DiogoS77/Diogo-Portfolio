@@ -1,7 +1,6 @@
 // Home.jsx
 import React from "react";
 import "../../css/Home.css";
-import Portrait from "../../images/portrait.png";
 import BlueLocationPin from "../../images/blueLocationPin.png";
 import WavingBlueHand from "../../images/wavingBlueEmoji.png";
 
@@ -84,7 +83,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <img className="profile-image" src={Portrait} alt="Profile" />
+        <div class="glitch"></div>
       </div>
     </div>
   );
