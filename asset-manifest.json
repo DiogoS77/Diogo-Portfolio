@@ -1,10 +1,17 @@
 {
   "files": {
-    "main.js": "/Diogo-Portfolio/static/js/main.cd4b230b.js",
+    "main.css": "/Diogo-Portfolio/static/css/main.50d3646d.css",
+    "main.js": "/Diogo-Portfolio/static/js/main.4ddb61f6.js",
+    "static/media/portraitNoBG.png": "/Diogo-Portfolio/static/media/portraitNoBG.8623c258aab13c74b0c9.png",
+    "static/media/wavingBlueEmoji.png": "/Diogo-Portfolio/static/media/wavingBlueEmoji.3517c779201241d5b9de.png",
+    "static/media/D-logo.png": "/Diogo-Portfolio/static/media/D-logo.605489a80ab43b4ee26d.png",
+    "static/media/blueLocationPin.png": "/Diogo-Portfolio/static/media/blueLocationPin.502990af8b8a779efda1.png",
     "index.html": "/Diogo-Portfolio/index.html",
-    "main.cd4b230b.js.map": "/Diogo-Portfolio/static/js/main.cd4b230b.js.map"
+    "main.50d3646d.css.map": "/Diogo-Portfolio/static/css/main.50d3646d.css.map",
+    "main.4ddb61f6.js.map": "/Diogo-Portfolio/static/js/main.4ddb61f6.js.map"
   },
   "entrypoints": [
-    "static/js/main.cd4b230b.js"
+    "static/css/main.50d3646d.css",
+    "static/js/main.4ddb61f6.js"
   ]
 }
