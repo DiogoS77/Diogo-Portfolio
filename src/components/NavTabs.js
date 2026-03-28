@@ -2,54 +2,32 @@ import React from "react";
 import "../css/NavTabs.css";
 import Logo from "../images/D-logo.png";
 
-function NavTabs({currentPage, handlePageChange}) {
+function NavTabs() {
   return (
     <nav className="navbar">
       <div className="logo">
         <img src={Logo} alt="Logo" />
       </div>
-      <ul className="nav nav-tabs">
+
+      <ul className="nav-tabs">
         <li className="nav-item">
-          <a
-            href="#home"
-            onClick={() => handlePageChange("Home")}
-            className={currentPage === "Home" ? "nav-link active" : "nav-link"}
-          >
-            Home
-          </a>
+          <a href="#home">Home</a>
         </li>
+
         <li className="nav-item">
-          <a
-            href="#workexperience"
-            onClick={() => handlePageChange("WorkExperience")}
-            className={
-              currentPage === "WorkExperience" ? "nav-link active" : "nav-link"
-            }
-          >
-            Work Experience
-          </a>
+          <a href="#skills">Skills</a>
         </li>
+
         <li className="nav-item">
-          <a
-            href="#projects"
-            onClick={() => handlePageChange("Projects")}
-            className={
-              currentPage === "Projects" ? "nav-link active" : "nav-link"
-            }
-          >
-            Projects
-          </a>
+          <a href="#experience">Work Experience</a>
         </li>
+
         <li className="nav-item">
-          <a
-            href="#contact"
-            onClick={() => handlePageChange("Contact")}
-            className={
-              currentPage === "Contact" ? "nav-link active" : "nav-link"
-            }
-          >
-            Contact
-          </a>
+          <a href="#projects">Projects</a>
+        </li>
+
+        <li className="nav-item">
+          <a href="#contact">Contact</a>
         </li>
       </ul>
     </nav>

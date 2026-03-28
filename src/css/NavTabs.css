@@ -1,61 +1,54 @@
-/* NavTabs.css */
-
 .navbar {
   display: flex;
-  align-items: center; /* Align items vertically */
-  justify-content: space-between; /* Spread logo and nav */
+  align-items: center;
+  justify-content: space-between;
   padding: 12px 40px;
-  background-color: #111; /* Dark background to match Home */
+  background-color: #111;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   z-index: 200;
-  backdrop-filter: blur(8px); /* subtle blur for modern look */
+  box-sizing: border-box;
 }
 
 .logo img {
-  height: 50px; /* Logo height */
-  width: auto;
+  height: 50px;
 }
 
 .nav-tabs {
   display: flex;
   list-style: none;
   margin: 0;
-  gap: 25px; /* spacing between nav items */
+  padding: 0;
+  gap: 20px;
 }
 
 .nav-item {
-  padding: 10px 0;
-  border-bottom: 3px solid transparent;
-  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .nav-item a {
   text-decoration: none;
-  color: #ccc; /* light gray text for inactive */
+  color: #ccc;
   font-weight: 600;
   font-size: 16px;
   font-family: "Inter", sans-serif;
   letter-spacing: 1px;
-  padding: 5px 10px;
+  padding: 8px 14px;
   border-radius: 6px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .nav-item a:hover {
-  color: #4da3ff; /* accent color hover */
-  background-color: rgba(77, 163, 255, 0.1); /* subtle highlight */
+  color: #4da3ff;
+  background-color: rgba(77, 163, 255, 0.1);
 }
 
-.nav-item a.active {
-  color: #0d0d0d; /* dark text on accent background */
-  background-color: #4da3ff; /* primary blue accent */
-  border-radius: 6px;
-  font-weight: 700;
-}
-
-.nav-item.active {
-  border-bottom: none;
+.nav-item a:active {
+  background-color: #4da3ff;
+  color: #0d0d0d;
 }
