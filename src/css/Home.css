@@ -1,148 +1,133 @@
-/* Home.css */
-
 body {
-  background-color: #f9f9f9;
   margin: 0;
-  padding: 0;
-}
-
-.home-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
-  margin-top: 100px;
-  background-color: #f9f9f9;
-}
-
-.content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 800px;
-}
-
-.header {
-  font-size: 48px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  font-family: "Montserrat", sans-serif;
-  position: relative;
-}
-
-.waving-hand {
-  position: absolute;
-  top: 78%;
-  left: calc(70% + 10px);
-  transform: translateY(-50%);
-  width: 50px;
-}
-
-.intro-text {
-  font-size: 18px;
-  margin-bottom: 20px;
+  background: #0d0d0d;
+  color: #eaeaea;
   font-family: "Inter", sans-serif;
 }
 
-.location-pin {
-  width: 20px;
-  vertical-align: middle;
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
 }
 
-.glitch {
-  position: relative;
+.container {
+  display: flex;
+  max-width: 1100px;
   width: 100%;
-  bottom: 40px;
-  height: 350px;
-  background: url(..//images/portraitNoBG.png);
-  background-size: cover;
+  gap: 60px;
 }
 
-.glitch:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0%;
-  width: 100%;
-  height: 350px;
-  background: url(../images/portraitNoBG.png);
-  background-size: cover;
-  opacity: 0.5;
-  mix-blend-mode: hard-light;
-  animation: glitch2 10s linear infinite;
+.left {
+  flex: 1;
 }
 
-.glitch:hover:before {
-  animation: glitch1 1s linear infinite;
+.tag {
+  color: #4da3ff;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
 }
 
-@keyframes glitch1 {
-  0% {
-    background-position: 0 0;
-    filter: hue-rotate(0deg);
-  }
-  10% {
-    background-position: 5px 0;
-  }
-  20% {
-    background-position: -5px 0;
-  }
-  30% {
-    background-position: 15px 0;
-  }
-  40% {
-    background-position: -5px 0;
-  }
-  50% {
-    background-position: -25px 0;
-  }
-  60% {
-    background-position: -50px 0;
-  }
-  70% {
-    background-position: 0 -20px;
-  }
-  80% {
-    background-position: -60px -20px;
-  }
-  81% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 0 0;
-    filter: hue-rotate(360deg);
-  }
+h1 {
+  font-size: 48px;
+  margin: 0 0 20px;
 }
 
-@keyframes glitch2 {
-  0% {
-    background-position: 0 0;
-    filter: hue-rotate(0deg);
-  }
-  10% {
-    background-position: 15px 0;
-  }
-  15% {
-    background-position: -15px 0;
-  }
-  20% {
-    filter: hue-rotate(360deg);
-  }
-  25% {
-    background-position: 0 0;
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    background-position: 0 0;
-    filter: hue-rotate(0deg);
-  }
+h1 span {
+  color: #4da3ff;
 }
 
-.social-icon path {
-  stroke: black;
-  transition: stroke 0.3s ease-in-out;
+.description {
+  font-size: 18px;
+  color: #b5b5b5;
+  margin-bottom: 25px;
+  line-height: 1.6;
 }
 
-.social-icon:hover path {
-  stroke: #007bff;
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.skills span {
+  background: #1a1a1a;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  border: 1px solid #2a2a2a;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.primary {
+  background: #4da3ff;
+  color: black;
+}
+
+.primary:hover {
+  background: #2d8cff;
+}
+
+.secondary {
+  border: 1px solid #4da3ff;
+  color: #4da3ff;
+}
+
+.secondary:hover {
+  background: #4da3ff;
+  color: black;
+}
+
+.socials a {
+  margin-right: 15px;
+  color: #888;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: #4da3ff;
+}
+
+.right {
+  width: 300px;
+}
+
+.card {
+  background: #111;
+  border: 1px solid #222;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+  margin-bottom: 15px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card li {
+  margin-bottom: 10px;
+  color: #bbb;
 }
