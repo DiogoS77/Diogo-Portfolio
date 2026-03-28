@@ -2,7 +2,7 @@
 
 import React from "react";
 import "../../css/Home.css";
-export default function Home() {
+export default function Home({handlePageChange}) {
   return (
     <div className="home">
       <div className="container">
@@ -27,10 +27,25 @@ export default function Home() {
           </div>
 
           <div className="buttons">
-            <a href="#projects" className="btn primary">
+            <a
+              href="#projects"
+              className="btn primary"
+              onClick={(e) => {
+                e.preventDefault(); // prevent default anchor jump
+                handlePageChange("Projects"); // trigger page change like nav tab
+              }}
+            >
               View Projects
             </a>
-            <a href="#contact" className="btn secondary">
+
+            <a
+              href="#contact"
+              className="btn secondary"
+              onClick={(e) => {
+                e.preventDefault();
+                handlePageChange("Contact");
+              }}
+            >
               Contact Me
             </a>
           </div>
