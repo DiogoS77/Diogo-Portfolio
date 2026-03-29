@@ -159,3 +159,15 @@ h1 span {
 .right {
   width: 300px;
 }
+
+/* CONTACT LINKS */
+#contact a {
+  color: #eaeaea;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#contact a:hover {
+  color: #4da3ff;
+  text-decoration: underline;
+}

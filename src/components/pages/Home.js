@@ -155,9 +155,32 @@ export default function Home() {
         <h2>Contact</h2>
 
         <div className="card glow">
-          <p>📧 Email: </p>
-          <p>💼 LinkedIn: </p>
-          <p>💻 GitHub: </p>
+          <p>
+            📧 Email:{" "}
+            <a href="mailto:diogo.messi.18@hotmail.com">
+              diogo.messi.18@hotmail.com
+            </a>
+          </p>
+          <p>
+            💼 LinkedIn:{" "}
+            <a
+              href="https://www.linkedin.com/in/diogo-desousa/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linkedin.com/in/diogo-desousa
+            </a>
+          </p>
+          <p>
+            💻 GitHub:{" "}
+            <a
+              href="https://github.com/DiogoS77"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              github.com/DiogoS77
+            </a>
+          </p>
         </div>
       </section>
     </div>
