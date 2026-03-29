@@ -1,12 +1,10 @@
-// Home.jsx
-
 import React from "react";
 import "../../css/Home.css";
 
 export default function Home() {
   return (
     <div className="home">
-      {/* HERO */}
+      {/* TOP SECTION */}
       <section className="section hero" id="home">
         <div className="container">
           <div className="left">
@@ -72,24 +70,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EXPERIENCE */}
+      {/* WORK EXPERIENCE */}
       <section className="section" id="experience">
         <h2>Work Experience</h2>
 
+        {/* Orange Toys */}
         <div className="card glow-hover">
-          <h3>IT Support Experience (Home Lab / Practice)</h3>
-          <p>2024 - Present</p>
+          <h3>Customer Service & Helpdesk Support</h3>
+          <p>Orange Toys, Birmingham / Remote — 2023–2024</p>
           <ul>
             <li>
-              Resolved simulated IT support tickets using structured
-              troubleshooting methods
+              Provided IT helpdesk support alongside customer service tasks
             </li>
-            <li>Managed users, groups, and permissions in Active Directory</li>
-            <li>Configured Windows environments and user profiles</li>
             <li>
-              Diagnosed networking issues including DNS and connectivity
-              problems
+              Assisted users with software installation, account setup, and
+              troubleshooting
             </li>
+            <li>
+              Maintained records of IT issues and followed up for resolution
+            </li>
+            <li>Handled calls, emails, live chat, and social media support</li>
+            <li>
+              Generated sales leads while providing technical guidance to
+              internal users
+            </li>
+          </ul>
+        </div>
+
+        {/* Capita / Tesco Mobile */}
+        <div className="card glow-hover">
+          <h3>Customer Service Representative</h3>
+          <p>Capita (Tesco Mobile, Birmingham / Remote) — 2022–2023</p>
+          <ul>
+            <li>
+              High-volume customer support via calls, email, and live chat
+            </li>
+            <li>
+              Assisted customers with technical queries and troubleshooting
+              guidance
+            </li>
+            <li>
+              Maintained accurate records and escalated technical issues when
+              required
+            </li>
+            <li>Focused on achieving high customer satisfaction levels</li>
           </ul>
         </div>
       </section>
