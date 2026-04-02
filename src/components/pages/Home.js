@@ -1,7 +1,77 @@
-import React from "react";
+import React, {useState} from "react";
 import "../../css/Home.css";
 
+import adInstall from "../../images/ad-install.png";
+import adStructure from "../../images/ad-structure.png";
+import passwordReset from "../../images/password-reset.png";
+import staticIp from "../../images/static-ip.png";
+import domainJoined from "../../images/domain-joined.png";
+import gpoCreate from "../../images/gpo-create.png";
+import gpoEdit from "../../images/gpo-edit.png";
+import gpoResult from "../../images/gpo-result.png";
+
 export default function Home() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const projects = [
+    {
+      id: 1,
+      title: "Active Directory Home Lab",
+      shortDescription:
+        "Built a virtual IT environment using Windows Server. Created users, applied Group Policies, and simulated real business IT scenarios.",
+      fullDescription:
+        "Built a full Active Directory home lab using Windows Server 2022 and a Windows 10 client machine in VirtualBox. Configured a domain controller, created users and Organizational Units, joined a client machine to the domain, and applied Group Policy to restrict Control Panel access. Also troubleshot DNS and connectivity issues while setting up communication between the server and client.",
+      bullets: [
+        "Installed and configured Windows Server 2022 in VirtualBox",
+        "Set up Active Directory Domain Services and created company.local domain",
+        "Created users and Organizational Units inside Active Directory",
+        "Joined a Windows 10 client machine to the domain",
+        "Applied Group Policy to restrict Control Panel access",
+        "Troubleshot DNS and network configuration issues",
+      ],
+      images: [
+        adInstall,
+        adStructure,
+        passwordReset,
+        staticIp,
+        domainJoined,
+        gpoCreate,
+        gpoEdit,
+        gpoResult,
+      ],
+    },
+    {
+      id: 2,
+      title: "Help Desk Ticket Simulation",
+      shortDescription:
+        "Simulated real-world IT tickets including password resets, software issues, and hardware troubleshooting.",
+      fullDescription:
+        "Created a help desk simulation project based on realistic IT support scenarios. Practised handling common issues such as password resets, application problems, printer issues, and user troubleshooting, following a structured support process similar to a real help desk environment.",
+      bullets: [
+        "Simulated common 1st line support tickets",
+        "Practised password reset and account support scenarios",
+        "Documented troubleshooting steps and issue resolution",
+        "Focused on clear communication and structured support workflow",
+      ],
+      images: [],
+    },
+    {
+      id: 3,
+      title: "Network Troubleshooting Lab",
+      shortDescription:
+        "Diagnosed and resolved network issues involving DNS, DHCP, and connectivity using command-line tools.",
+      fullDescription:
+        "Built a basic networking lab to practise diagnosing connectivity problems using Windows command-line tools. Tested IP addressing, DNS lookup issues, and communication between machines, using commands such as ipconfig, ping, and nslookup.",
+      bullets: [
+        "Tested connectivity between machines",
+        "Used ipconfig, ping, and nslookup for troubleshooting",
+        "Worked with DNS and IP configuration issues",
+        "Practised identifying and fixing network communication problems",
+      ],
+      images: [],
+    },
+  ];
+
   return (
     <div className="home">
       {/* TOP SECTION */}
@@ -74,7 +144,6 @@ export default function Home() {
       <section className="section" id="experience">
         <h2>Work Experience</h2>
 
-        {/* Orange Toys */}
         <div className="card glow-hover">
           <h3>Customer Service & Helpdesk Support</h3>
           <p>Orange Toys, Birmingham / Remote — 2023–2024</p>
@@ -97,7 +166,6 @@ export default function Home() {
           </ul>
         </div>
 
-        {/* Capita / Tesco Mobile */}
         <div className="card glow-hover">
           <h3>Customer Service Representative</h3>
           <p>Capita (Tesco Mobile, Birmingham / Remote) — 2022–2023</p>
@@ -123,30 +191,16 @@ export default function Home() {
         <h2>Projects</h2>
 
         <div className="grid cards">
-          <div className="card glow-hover">
-            <h3>Active Directory Home Lab</h3>
-            <p>
-              Built a virtual IT environment using Windows Server. Created
-              users, applied Group Policies, and simulated real business IT
-              scenarios.
-            </p>
-          </div>
-
-          <div className="card glow-hover">
-            <h3>Help Desk Ticket Simulation</h3>
-            <p>
-              Simulated real-world IT tickets including password resets,
-              software issues, and hardware troubleshooting.
-            </p>
-          </div>
-
-          <div className="card glow-hover">
-            <h3>Network Troubleshooting Lab</h3>
-            <p>
-              Diagnosed and resolved network issues involving DNS, DHCP, and
-              connectivity using command-line tools.
-            </p>
-          </div>
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="card glow-hover project-card"
+              onClick={() => setSelectedProject(project)}
+            >
+              <h3>{project.title}</h3>
+              <p>{project.shortDescription}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -183,6 +237,46 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* PROJECT MODAL */}
+      {selectedProject && (
+        <div
+          className="project-modal-overlay"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div className="project-modal" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="close-modal"
+              onClick={() => setSelectedProject(null)}
+            >
+              ×
+            </button>
+
+            <h2>{selectedProject.title}</h2>
+            <p className="project-full-text">
+              {selectedProject.fullDescription}
+            </p>
+
+            <ul className="project-bullets">
+              {selectedProject.bullets.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+
+            {selectedProject.images.length > 0 && (
+              <div className="project-images">
+                {selectedProject.images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`${selectedProject.title} screenshot ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
