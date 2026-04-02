@@ -32,14 +32,45 @@ export default function Home() {
         "Troubleshot DNS and network configuration issues",
       ],
       images: [
-        adInstall,
-        adStructure,
-        passwordReset,
-        staticIp,
-        domainJoined,
-        gpoCreate,
-        gpoEdit,
-        gpoResult,
+        {
+          src: adInstall,
+          caption:
+            "Installing Active Directory Domain Services (AD DS) role on Windows Server.",
+        },
+        {
+          src: adStructure,
+          caption:
+            "Created the Active Directory structure with organisational units and users.",
+        },
+        {
+          src: passwordReset,
+          caption:
+            "Managed user accounts and performed password reset tasks inside Active Directory.",
+        },
+        {
+          src: staticIp,
+          caption:
+            "Configured static IP and DNS settings so the server could act as the domain controller.",
+        },
+        {
+          src: domainJoined,
+          caption:
+            "Successfully joined the Windows 10 client machine to the company.local domain.",
+        },
+        {
+          src: gpoCreate,
+          caption: "Created a new Group Policy Object (GPO) in the domain.",
+        },
+        {
+          src: gpoEdit,
+          caption:
+            "Edited Group Policy settings to restrict Control Panel access for users.",
+        },
+        {
+          src: gpoResult,
+          caption:
+            "Verified that the Group Policy was applied successfully on the client machine.",
+        },
       ],
     },
     {
@@ -80,8 +111,8 @@ export default function Home() {
     setCurrentImageIndex(0);
   };
 
-  const openImageLightbox = (image, index) => {
-    setSelectedImage(image);
+  const openImageLightbox = (imageSrc, index) => {
+    setSelectedImage(imageSrc);
     setCurrentImageIndex(index);
   };
 
@@ -315,9 +346,9 @@ export default function Home() {
                 {selectedProject.images.map((image, index) => (
                   <img
                     key={index}
-                    src={image}
-                    alt={`${selectedProject.title} screenshot ${index + 1}`}
-                    onClick={() => openImageLightbox(image, index)}
+                    src={image.src}
+                    alt={image.caption}
+                    onClick={() => openImageLightbox(image.src, index)}
                   />
                 ))}
               </div>
@@ -346,10 +377,15 @@ export default function Home() {
               </>
             )}
 
-            <img
-              src={selectedProject.images[currentImageIndex]}
-              alt="Project screenshot enlarged"
-            />
+            <div className="lightbox-image-wrapper">
+              <img
+                src={selectedProject.images[currentImageIndex].src}
+                alt={selectedProject.images[currentImageIndex].caption}
+              />
+              <p className="image-caption">
+                {selectedProject.images[currentImageIndex].caption}
+              </p>
+            </div>
           </div>
         </div>
       )}
