@@ -12,6 +12,7 @@ import gpoResult from "../../images/gpo-result.png";
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const projects = [
     {
@@ -74,7 +75,6 @@ export default function Home() {
 
   return (
     <div className="home">
-      {/* TOP SECTION */}
       <section className="section hero" id="home">
         <div className="container">
           <div className="left">
@@ -114,7 +114,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SKILLS */}
       <section className="section" id="skills">
         <h2>Skills</h2>
 
@@ -140,7 +139,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WORK EXPERIENCE */}
       <section className="section" id="experience">
         <h2>Work Experience</h2>
 
@@ -186,7 +184,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJECTS */}
       <section className="section" id="projects">
         <h2>Projects</h2>
 
@@ -204,7 +201,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT */}
       <section className="section" id="contact">
         <h2>Contact</h2>
 
@@ -238,7 +234,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJECT MODAL */}
       {selectedProject && (
         <div
           className="project-modal-overlay"
@@ -270,10 +265,28 @@ export default function Home() {
                     key={index}
                     src={image}
                     alt={`${selectedProject.title} screenshot ${index + 1}`}
+                    onClick={() => setSelectedImage(image)}
                   />
                 ))}
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {selectedImage && (
+        <div
+          className="image-lightbox-overlay"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="image-lightbox" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="close-lightbox"
+              onClick={() => setSelectedImage(null)}
+            >
+              ×
+            </button>
+            <img src={selectedImage} alt="Project screenshot enlarged" />
           </div>
         </div>
       )}

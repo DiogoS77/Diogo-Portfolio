@@ -231,7 +231,6 @@ h1 span {
   line-height: 1.6;
 }
 
-/* BIGGER PROJECT IMAGES */
 .project-images {
   display: flex;
   flex-direction: column;
@@ -250,6 +249,7 @@ h1 span {
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  cursor: zoom-in;
 }
 
 .project-images img:hover {
@@ -269,6 +269,60 @@ h1 span {
 }
 
 .close-modal:hover {
+  color: #4da3ff;
+}
+
+/* LIGHTBOX */
+.image-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.image-lightbox {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-lightbox img {
+  max-width: 95vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid #222;
+  box-shadow: 0 0 25px rgba(77, 163, 255, 0.15);
+}
+
+.close-lightbox {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #111;
+  border: 1px solid #2a2a2a;
+  color: #eaeaea;
+  font-size: 30px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close-lightbox:hover {
   color: #4da3ff;
 }
 
