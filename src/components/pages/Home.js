@@ -13,6 +13,7 @@ import gpoResult from "../../images/gpo-result.png";
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const projects = [
     {
@@ -73,8 +74,36 @@ export default function Home() {
     },
   ];
 
+  const closeProjectModal = () => {
+    setSelectedProject(null);
+    setSelectedImage(null);
+    setCurrentImageIndex(0);
+  };
+
+  const openImageLightbox = (image, index) => {
+    setSelectedImage(image);
+    setCurrentImageIndex(index);
+  };
+
+  const showPreviousImage = () => {
+    if (!selectedProject || selectedProject.images.length === 0) return;
+
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? selectedProject.images.length - 1 : prev - 1,
+    );
+  };
+
+  const showNextImage = () => {
+    if (!selectedProject || selectedProject.images.length === 0) return;
+
+    setCurrentImageIndex((prev) =>
+      prev === selectedProject.images.length - 1 ? 0 : prev + 1,
+    );
+  };
+
   return (
     <div className="home">
+      {/* TOP SECTION */}
       <section className="section hero" id="home">
         <div className="container">
           <div className="left">
@@ -114,6 +143,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SKILLS */}
       <section className="section" id="skills">
         <h2>Skills</h2>
 
@@ -139,6 +169,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WORK EXPERIENCE */}
       <section className="section" id="experience">
         <h2>Work Experience</h2>
 
@@ -184,6 +215,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PROJECTS */}
       <section className="section" id="projects">
         <h2>Projects</h2>
 
@@ -201,6 +233,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CONTACT */}
       <section className="section" id="contact">
         <h2>Contact</h2>
 
@@ -234,16 +267,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PROJECT MODAL */}
       {selectedProject && (
-        <div
-          className="project-modal-overlay"
-          onClick={() => setSelectedProject(null)}
-        >
+        <div className="project-modal-overlay" onClick={closeProjectModal}>
           <div className="project-modal" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="close-modal"
-              onClick={() => setSelectedProject(null)}
-            >
+            <button className="close-modal" onClick={closeProjectModal}>
               ×
             </button>
 
@@ -265,7 +293,7 @@ export default function Home() {
                     key={index}
                     src={image}
                     alt={`${selectedProject.title} screenshot ${index + 1}`}
-                    onClick={() => setSelectedImage(image)}
+                    onClick={() => openImageLightbox(image, index)}
                   />
                 ))}
               </div>
@@ -274,7 +302,8 @@ export default function Home() {
         </div>
       )}
 
-      {selectedImage && (
+      {/* IMAGE LIGHTBOX */}
+      {selectedImage && selectedProject && (
         <div
           className="image-lightbox-overlay"
           onClick={() => setSelectedImage(null)}
@@ -286,7 +315,23 @@ export default function Home() {
             >
               ×
             </button>
-            <img src={selectedImage} alt="Project screenshot enlarged" />
+
+            {selectedProject.images.length > 1 && (
+              <>
+                <button className="arrow left" onClick={showPreviousImage}>
+                  ‹
+                </button>
+
+                <button className="arrow right" onClick={showNextImage}>
+                  ›
+                </button>
+              </>
+            )}
+
+            <img
+              src={selectedProject.images[currentImageIndex]}
+              alt="Project screenshot enlarged"
+            />
           </div>
         </div>
       )}
