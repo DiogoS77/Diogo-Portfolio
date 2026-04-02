@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState, useCallback} from "react";
 import "../../css/Home.css";
 
 import adInstall from "../../images/ad-install.png";
@@ -85,21 +85,45 @@ export default function Home() {
     setCurrentImageIndex(index);
   };
 
-  const showPreviousImage = () => {
+  const closeLightbox = () => {
+    setSelectedImage(null);
+  };
+
+  const showPreviousImage = useCallback(() => {
     if (!selectedProject || selectedProject.images.length === 0) return;
 
     setCurrentImageIndex((prev) =>
       prev === 0 ? selectedProject.images.length - 1 : prev - 1,
     );
-  };
+  }, [selectedProject]);
 
-  const showNextImage = () => {
+  const showNextImage = useCallback(() => {
     if (!selectedProject || selectedProject.images.length === 0) return;
 
     setCurrentImageIndex((prev) =>
       prev === selectedProject.images.length - 1 ? 0 : prev + 1,
     );
-  };
+  }, [selectedProject]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedImage || !selectedProject) return;
+
+      if (e.key === "ArrowLeft") {
+        showPreviousImage();
+      } else if (e.key === "ArrowRight") {
+        showNextImage();
+      } else if (e.key === "Escape") {
+        closeLightbox();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedImage, selectedProject, showNextImage, showPreviousImage]);
 
   return (
     <div className="home">
@@ -304,15 +328,9 @@ export default function Home() {
 
       {/* IMAGE LIGHTBOX */}
       {selectedImage && selectedProject && (
-        <div
-          className="image-lightbox-overlay"
-          onClick={() => setSelectedImage(null)}
-        >
+        <div className="image-lightbox-overlay" onClick={closeLightbox}>
           <div className="image-lightbox" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="close-lightbox"
-              onClick={() => setSelectedImage(null)}
-            >
+            <button className="close-lightbox" onClick={closeLightbox}>
               ×
             </button>
 
