@@ -10,6 +10,14 @@ import gpoCreate from "../../images/gpo-create.png";
 import gpoEdit from "../../images/gpo-edit.png";
 import gpoResult from "../../images/gpo-result.png";
 
+import ticketBefore from "../../images/ticket-before.png";
+import ticketAfter from "../../images/ticket-after.png";
+import hdPasswordReset from "../../images/hd-password-reset.png";
+import teamsRepair from "../../images/teams-repair.png";
+import printSpooler from "../../images/print-spooler.png";
+import networkCmdBefore from "../../images/network-cmd-before.png";
+import networkCmdAfter from "../../images/network-cmd-after.png";
+
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -77,16 +85,54 @@ export default function Home() {
       id: 2,
       title: "Help Desk Ticket Simulation",
       shortDescription:
-        "Simulated real-world IT tickets including password resets, software issues, and hardware troubleshooting.",
+        "Simulated realistic 1st and 2nd line support tickets involving Active Directory, software troubleshooting, printer support, and network diagnostics.",
       fullDescription:
-        "Created a help desk simulation project based on realistic IT support scenarios. Practised handling common issues such as password resets, application problems, printer issues, and user troubleshooting, following a structured support process similar to a real help desk environment.",
+        "Built a help desk ticket simulation project to demonstrate a structured IT support workflow similar to a real service desk environment. Worked through common support scenarios including account access issues, Microsoft Teams launch problems, printer faults, and network connectivity troubleshooting. Documented each issue, carried out the relevant fix, and updated the ticket log with final resolutions to reflect a professional help desk process.",
       bullets: [
-        "Simulated common 1st line support tickets",
-        "Practised password reset and account support scenarios",
-        "Documented troubleshooting steps and issue resolution",
-        "Focused on clear communication and structured support workflow",
+        "Simulated realistic 1st line and 2nd line support tickets",
+        "Reset user passwords and unlocked accounts in Active Directory",
+        "Troubleshot Microsoft Teams launch issues through installed application checks",
+        "Restarted Print Spooler service to resolve printer availability problems",
+        "Used Command Prompt tools such as ipconfig and ping to troubleshoot connectivity",
+        "Updated ticket records with clear status changes and resolution notes",
       ],
-      images: [],
+      images: [
+        {
+          src: ticketBefore,
+          caption:
+            "Initial help desk ticket log showing open support tickets before troubleshooting and resolution work began.",
+        },
+        {
+          src: hdPasswordReset,
+          caption:
+            "Reset a user password and reviewed account lockout status in Active Directory as part of a typical account access support task.",
+        },
+        {
+          src: teamsRepair,
+          caption:
+            "Investigated a Microsoft Teams application issue through Programs and Features to simulate software troubleshooting steps in a help desk environment.",
+        },
+        {
+          src: printSpooler,
+          caption:
+            "Restarted the Print Spooler service to resolve a printer issue and restore printing functionality.",
+        },
+        {
+          src: networkCmdBefore,
+          caption:
+            "Ran Command Prompt troubleshooting commands including ipconfig and ping while diagnosing a network connectivity issue. Sensitive network details were removed.",
+        },
+        {
+          src: networkCmdAfter,
+          caption:
+            "Verified successful connectivity after troubleshooting by repeating ping tests and confirming network communication. Sensitive network details were removed.",
+        },
+        {
+          src: ticketAfter,
+          caption:
+            "Final ticket log after all issues were resolved, showing updated statuses and documented resolution notes.",
+        },
+      ],
     },
     {
       id: 3,
