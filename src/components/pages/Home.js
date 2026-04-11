@@ -18,6 +18,12 @@ import printSpooler from "../../images/print-spooler.png";
 import networkCmdBefore from "../../images/network-cmd-before.png";
 import networkCmdAfter from "../../images/network-cmd-after.png";
 
+import sharedFolderShare from "../../images/shared-folder-share.png";
+import sharedFolderNtfs from "../../images/shared-folder-ntfs.png";
+import sharedFolderWorking1 from "../../images/shared-folder-working-1.png";
+import sharedFolderDenied from "../../images/shared-folder-denied.png";
+import sharedFolderWorking2 from "../../images/shared-folder-working-2.png";
+
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -136,18 +142,46 @@ export default function Home() {
     },
     {
       id: 3,
-      title: "Network Troubleshooting Lab",
+      title: "Shared Folder & Permissions Lab",
       shortDescription:
-        "Diagnosed and resolved network issues involving DNS, DHCP, and connectivity using command-line tools.",
+        "Configured shared folders and managed NTFS permissions in Windows Server to simulate real-world file access and user permission issues.",
       fullDescription:
-        "Built a basic networking lab to practise diagnosing connectivity problems using Windows command-line tools. Tested IP addressing, DNS lookup issues, and communication between machines, using commands such as ipconfig, ping, and nslookup.",
+        "Built a file sharing lab using Windows Server 2022 and a Windows 10 client machine in VirtualBox to practise managing shared folder access in a domain environment. Created a shared folder on the server, configured both share and NTFS permissions, and tested access from the client using a domain user account. Simulated a realistic support scenario by intentionally removing permissions to trigger an access denied error, then restored access by correcting the permission settings.",
       bullets: [
-        "Tested connectivity between machines",
-        "Used ipconfig, ping, and nslookup for troubleshooting",
-        "Worked with DNS and IP configuration issues",
-        "Practised identifying and fixing network communication problems",
+        "Created and shared a folder in Windows Server using share permissions",
+        "Configured NTFS permissions for a domain user account",
+        "Tested access from a separate client VM in a domain environment",
+        "Simulated an access denied issue by removing user permissions",
+        "Restored folder access by correcting NTFS permission settings",
+        "Practised a realistic help desk scenario involving shared drive access",
       ],
-      images: [],
+      images: [
+        {
+          src: sharedFolderShare,
+          caption:
+            "Configured the shared folder on the Windows Server VM and enabled share permissions so the resource could be accessed across the network.",
+        },
+        {
+          src: sharedFolderNtfs,
+          caption:
+            "Assigned NTFS permissions to the domain user account, allowing controlled access to the shared folder based on user-level security settings.",
+        },
+        {
+          src: sharedFolderWorking1,
+          caption:
+            "Verified successful access from the client VM by opening the shared folder using the server hostname, confirming that sharing and permissions were working correctly.",
+        },
+        {
+          src: sharedFolderDenied,
+          caption:
+            "Simulated a common help desk issue by removing permissions and testing again from the client VM, which resulted in an access denied error.",
+        },
+        {
+          src: sharedFolderWorking2,
+          caption:
+            "Restored the correct user permissions on the server and confirmed that the client VM could access the shared folder again successfully.",
+        },
+      ],
     },
   ];
 
